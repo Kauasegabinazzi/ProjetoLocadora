@@ -1,0 +1,26 @@
+<mat-toolbar style="background-color: blueviolet;">
+  <mat-toolbar-row>
+    <button mat-button (click)="opened=!opened"><mat-icon>menu</mat-icon></button>
+    <button mat-button><mat-icon>home</mat-icon> Home </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav  [(opened)]="opened" mode="push">
+    <mat-list>
+      <mat-list-item>
+        <a routerLink="/veiculos" style="text-decoration: none; color: blueviolet;">Veiculos</a>
+      </mat-list-item>
+      <mat-list-item>
+        <a routerLink="/clientes" style="text-decoration: none; color: blueviolet;">clientes</a>
+      </mat-list-item>
+      <mat-list-item>
+        <a routerLink="/reservas" style="text-decoration: none; color: blueviolet;">reservar</a>
+      </mat-list-item>
+
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

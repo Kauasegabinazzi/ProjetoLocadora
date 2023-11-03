@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "chrome",
+        "request": "launch",
+        "name": "Angular Dev",
+        "url": "http://localhost:4200",
+        "webRoot": "${workspaceFolder}", // Este é o caminho para o diretório raiz do projeto
+        "sourceMapPathOverrides": {
+          "webpack:///./*": "${webRoot}/*"
+        },
+        "sourceMaps": true
+      }
+    ]
+  }

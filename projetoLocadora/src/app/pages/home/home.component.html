@@ -1,0 +1,33 @@
+<section id="main-container">
+  <div class="tab-content">
+    <ng-container>
+      <div class="button-container">
+        <button class="botton-menu" style="margin-bottom: 1%; margin-left: 10px; margin-top: 20px;">
+          <img src="assets/icons/Vector.svg">
+        </button>
+        <button class="botton-login"
+          style="margin-right: 10px; display: flex; align-items: center; justify-content: center; margin-top: 20px; color: white;" (click)="navegateToComponents('/clientes')">
+          <img src="assets/icons/icone-boneco.svg">
+          Login
+        </button>
+        <button class="botton-login"
+          style="margin-right: 10px; display: flex; align-items: center; justify-content: center; margin-top: 20px; color: white;" (click)="getModalLogin()">
+          <img src="assets/icons/icone-boneco.svg">
+          Criar conta
+        </button>
+      </div>
+    </ng-container>
+  </div>
+</section>
+<div id="menu" style="float:left">
+  <div class="center-text" style="font-size: 500%;">
+    Encontre o<br>veículo<br><span class="highlighted-text">CERTO</span><br>para você
+  </div>
+  <div class="company-slogan">
+    É fácil, é rápido, é (nome da empresa)
+  </div>
+</div>
+<div id="menu" style="float:right; margin-right: 210px; margin-top: 50px;">
+  <img src="assets/icons/3dicons.svg">
+</div>
+
