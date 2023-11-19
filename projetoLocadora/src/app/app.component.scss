@@ -1,8 +1,7 @@
-mat-sidenav-container{
-  height: calc(234vh - 141vh);
-  background-color: white;
-}
-mat-sidenav{
-  width: 200px;
-  background-color: #eee;
+/* app.component.css */
+.catalog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
