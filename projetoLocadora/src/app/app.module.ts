@@ -15,6 +15,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import { Dialog } from '@angular/cdk/dialog';
+import { ErrorDialogComponent } from './pages/reservations/error-dialog.component';
+import { ErrorDialogService } from './pages/reservations/error-dialog.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
@@ -23,6 +31,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     VehiclesComponent,
     ClientsComponent,
     ReservationsComponent,
+    ErrorDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +44,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    FormsModule,
+    MatInputModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatDialogModule,
     NgbModule,
   ],
   providers: [],
