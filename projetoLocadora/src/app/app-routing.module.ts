@@ -5,6 +5,7 @@ import { VehiclesComponent } from './pages/vehicles/vehicles.component';
 import { ClientsComponent } from './pages/clients/clients.component';
 import { ReservationsComponent } from './pages/reservations/reservations.component';
 
+
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'veiculos', component: VehiclesComponent},

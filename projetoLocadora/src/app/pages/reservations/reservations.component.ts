@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FakeApiService } from './reservations.service';
-import { ErrorDialogService } from './error-dialog.service';
-
+import { ErrorDialogService } from './errordialog.service';
 
 @Component({
   selector: 'app-reservations',
   templateUrl: './reservations.component.html',
-  styleUrls: ['./reservations.component.css']
+  styleUrls: ['./reservations.component.scss']
 })
 export class ReservationsComponent implements OnInit {
   vehicles: any[] = [];

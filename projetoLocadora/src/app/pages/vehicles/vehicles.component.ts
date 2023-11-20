@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 
 @Component({
@@ -71,7 +70,7 @@ export class VehiclesComponent {
   ]
   reservar() {
     console.log('Reserva realizada!');
-    this.router.navigate(['/clientes']);
+    this.router.navigate(['/reservas']);
   }
   
   onMouseOver() {

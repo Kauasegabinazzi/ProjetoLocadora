@@ -1,7 +1,7 @@
 <mat-toolbar style="background-color: blueviolet;">
   <mat-toolbar-row>
     <button mat-button (click)="opened=!opened"><mat-icon>menu</mat-icon></button>
-    <button mat-button><mat-icon>home</mat-icon> Home </button>
+    <button mat-button routerLink="/"><mat-icon>home</mat-icon> Home</button>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
@@ -11,16 +11,14 @@
         <a routerLink="/veiculos" style="text-decoration: none; color: blueviolet;">Veiculos</a>
       </mat-list-item>
       <mat-list-item>
-        <a routerLink="/clientes" style="text-decoration: none; color: blueviolet;">clientinhowssssss</a>
+        <a routerLink="/clientes" style="text-decoration: none; color: blueviolet;">Clientes</a>
       </mat-list-item>
       <mat-list-item>
-        <a routerLink="/reservas" style="text-decoration: none; color: blueviolet;">reservar</a>
+        <a routerLink="/reservas" style="text-decoration: none; color: blueviolet;">Reservar</a>
       </mat-list-item>
-
     </mat-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
