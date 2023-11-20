@@ -1,9 +1,33 @@
-<section class="container">
-  <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Cliente</mat-card-title>
-      <mat-card-subtitle>Carro</mat-card-subtitle>
-    </mat-card-header>
-  </mat-card>
-</section>
+<div class="container">
+  <div class="form-container">
+    <h1>Reserva de Veículo</h1>
+    <form (ngSubmit)="reserveVehicle()" class="form-container">
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Cliente</mat-label>
+        <mat-select id="clientSelect" name="clientSelect" [(ngModel)]="selectedClient" required>
+          <mat-option value="0">Selecione um cliente</mat-option>
+          <mat-option *ngFor="let client of clients" [value]="client.id">{{ client.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Veículo</mat-label>
+        <mat-select id="vehicleModel" name="vehicleModel" [(ngModel)]="selectedVehicle" required>
+          <mat-option value="0">Selecione um veículo</mat-option>
+          <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{ vehicle.model }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Reservar</button>
+    </form>
+  </div>
+  
+  <div class="reservations-list">
+    <h2>Veículos Reservados:</h2>
+    <ul>
+      <li *ngFor="let reservation of reservations" class="reserved-vehicle">
+        Veículo: {{ getVehicleModel(reservation.vehicleId) }} - Cliente: {{ getClientName(reservation.clientId) }}
+      </li>
+    </ul>
+  </div>
+</div>
