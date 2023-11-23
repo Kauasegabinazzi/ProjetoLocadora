@@ -30,13 +30,13 @@ export class FakeApiService {
   reserveVehicle(clientId: number, vehicleId: number): Observable<any> {
     const vehicle = this.vehicles.find(v => v.id === vehicleId);
     const client = this.clients.find(c => c.id === clientId);
-    
+
     if (vehicle && client && vehicle.available) {
       vehicle.available = false;
       this.reservations.push({ clientId, vehicleId });
       return of({ success: true });
     }
-    
+
     return of({ success: false });
   }
 

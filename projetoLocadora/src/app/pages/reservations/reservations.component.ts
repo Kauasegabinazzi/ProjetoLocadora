@@ -14,7 +14,7 @@ export class ReservationsComponent implements OnInit {
   selectedVehicle: number = 0;
   reservations: any[] = [];
 
-  constructor(private fakeApiService: FakeApiService, private errorDialogService: ErrorDialogService) { }
+  constructor(public fakeApiService: FakeApiService, private errorDialogService: ErrorDialogService) { }
 
   ngOnInit(): void {
     this.loadVehicles();
@@ -46,7 +46,7 @@ export class ReservationsComponent implements OnInit {
         reservation =>
           reservation.vehicleId === this.selectedVehicle && reservation.clientId !== this.selectedClient
       );
-  
+
       if (!existingReservation) {
         this.fakeApiService.reserveVehicle(this.selectedClient, this.selectedVehicle)
           .subscribe(response => {
@@ -59,10 +59,10 @@ export class ReservationsComponent implements OnInit {
               this.errorDialogService.openDialog('Falha ao reservar o veículo.');
             }
           });
-      } 
+      }
     }
   }
-  
+
   getClientName(clientId: number): string {
     const client = this.clients.find(c => c.id === clientId);
     return client ? client.name : 'Cliente Desconhecido';
