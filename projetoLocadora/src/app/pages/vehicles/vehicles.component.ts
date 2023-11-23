@@ -7,9 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./vehicles.component.scss'],
 })
 export class VehiclesComponent {
- 
+
   constructor(private router: Router) {}
-  
+
   cars = [
     {
       imagePath: 'https://r-media.volkswagen.com/v2/VW/2GB-2023-MULTI/2GB-2024-MP1/20231101/pt-BR-br/6K6K/WJ/00A,0A2,0B1,0FR,0N1,0NW,0RZ,1A4,1KA,1T2,1TW,1W0,1X0,1ZS,2C5,2D0,2FE,2H0,2J4,3B4,3C7,3FA,3GA,3H0,3J4,3L1,3NZ,3Q6,3U1,3ZB,4AM,4GF,4I3,4KC,4L6,4P0,4QU,4R4,4U7,4UF,4X1,5N0,5RQ,5SJ,5XH,6E3,6F1,6FF,6K0,6KC,6PH,6Q2,6YA,7L6,7Q0,7R6,7TL,7W0,7X2,7Y0,8IT,8M1,8N6,8Q1,8RL,8S2,8SA,8T2,8TA,8UK,8WA,8X0,8ZG,9E1,9I5,9II,9JA,9ME,9P9,9PE,9S0,9V6,9WG,A8M,AV1,AW5,B41,CI8,DS8,E0A,G1A,GP1,IA0,K8G,KA1,KC0,L0L,N3P,QJ1,QK0,T26,U9C,VF0/D6MOFA34FrontPC/b19d7b4a-df80-487c-908a-47785dbb35fc/1d9002bc68dc04fb383ca4e8eb6bf655149cf07e71eedb8b48a0ef6e0728ebe0.png?width=864',
@@ -72,7 +72,7 @@ export class VehiclesComponent {
     console.log('Reserva realizada!');
     this.router.navigate(['/reservas']);
   }
-  
+
   onMouseOver() {
     document.querySelector('.reserve-button')?.classList.add('hovered');
   }

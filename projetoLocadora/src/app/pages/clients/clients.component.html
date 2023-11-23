@@ -1,38 +1,40 @@
-<section class="container">
-  <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
-  <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
+<section class="catalog">
+  <table class="table table-hover">
+    <tbody>
+      <tr class="table-header">
+        <th>
+          Nome
+        </th>
+        <th>
+          Matricula
+        </th>
+        <th>
+          Idade
+        </th>
+        <th>
+          Aniversario
+        </th>
+        <th>
+          Data de Criação do Usuario
+        </th>
+      </tr>
+      <tr  *ngFor="let item of clientList">
+        <td>
+          {{item.nome}}
+        </td>
+        <td>
+          {{item.Matricula}}
+        </td>
+        <td>
+          {{item.Idade}}
+        </td>
+        <td>
+          {{item.Aniversario | date: 'dd/MM/yyyy'}}
+        </td>
+        <td>
+          {{item.Data_Criacao_usuario  | date: 'dd/MM/yyyy'}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </section>

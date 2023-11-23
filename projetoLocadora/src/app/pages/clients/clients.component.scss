@@ -1,7 +1,11 @@
 @import '../../../styles.scss';
 
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+.catalog {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px;
+  align-items: center;
+  height: 95vh;
+  gap: 3vh;
+  padding: 5vh;
 }
-
