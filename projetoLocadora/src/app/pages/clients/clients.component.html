@@ -12,16 +12,16 @@
           Nome
         </th>
         <th>
-          Matricula
+          Matrícula
         </th>
         <th>
           Idade
         </th>
         <th>
-          Aniversario
+          Aniversário
         </th>
         <th>
-          Data de Criação do Usuario
+          Data de Criação do Usuário
         </th>
         <th>
           Ações
@@ -29,19 +29,19 @@
       </tr>
       <tr *ngFor="let item of clientList">
         <td>
-          {{item.nome}}
+          {{item.name}}
         </td>
         <td>
-          {{item.Matricula}}
+          {{item.registration}}
         </td>
         <td>
-          {{item.Idade}}
+          {{item.age}}
         </td>
         <td>
-          {{item.Aniversario | date: 'dd/MM/yyyy'}}
+          {{item.birthday | date: 'dd/MM/yyyy'}}
         </td>
         <td>
-          {{item.Data_Criacao_usuario | date: 'dd/MM/yyyy'}}
+          {{item.usercreationdate | date: 'dd/MM/yyyy'}}
         </td>
         <td>
           <img src="../../../assets/icons/edit-button-svgrepo-com.svg" style="margin-right: 50px;"
