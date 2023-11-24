@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ErrorDialogComponent } from '../app/pages/reservations/errordialog.component';
+import { ErrorDialogComponent } from '../app/pages/reservations/error-dialog.component';
 
 @Injectable({
   providedIn: 'root',
