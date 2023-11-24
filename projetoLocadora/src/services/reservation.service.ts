@@ -1,29 +1,35 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Observable, BehaviorSubject, throwError } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
 import { ReservationList } from 'src/app/pages/reservations/module/struct';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationService {
+  reservations: ReservationList[] = [];
 
-  private baseUrl: string = 'http://localhost:3000';
-  private reservationsUrl: string = `${this.baseUrl}/list-reservations`;
+  private url: string = 'http://localhost:3000';
+  private reservationsUrl: string = `${this.url}/list-reservations`;
   private reservationListSubject: BehaviorSubject<ReservationList[]> = new BehaviorSubject<ReservationList[]>([]);
   public reservationList$: Observable<ReservationList[]> = this.reservationListSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
   public ReservationList(): Observable<Array<ReservationList>> {
-    return this.http.get<Array<ReservationList>>(`${this.baseUrl}/list-reservations`).pipe(
-      res => res,
-      error => error
-    )
-  }
+    return this.http.get<Array<ReservationList>>(`${this.url}/list-reservations`).pipe(
+      tap((reservations: ReservationList[]) => {
+        this.reservationListSubject.next(reservations);
+      }),
+      catchError((error: any) => {
+        console.error('Error fetching reservations:', error);
+        return throwError(error);
+      })
+    );
+  }  
 
-  public ReservationListUpdate(): void {
+  ReservationListUpdate(): void {
     this.ReservationList().subscribe((reservations: ReservationList[]) => {
       this.reservationListSubject.next(reservations);
     });

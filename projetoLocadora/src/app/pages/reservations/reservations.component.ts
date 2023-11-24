@@ -19,9 +19,10 @@ type Reservation = ReservationList;
 export class ReservationsComponent implements OnInit, OnDestroy {
   vehicles: VehicleList[] = [];
   clients: ClientList[] = [];
+  reservations: ReservationList[] = [];
   selectedClient: number = 0;
   selectedVehicle: number = 0;
-  reservations: ReservationList[] = [];
+  
 
   private subscriptions: Subscription[] = [];
   private reservationsSubject: BehaviorSubject<Reservation[]> = new BehaviorSubject<Reservation[]>([]);
@@ -43,8 +44,8 @@ export class ReservationsComponent implements OnInit, OnDestroy {
 
   loadInitialData(): void {
     this.subscriptions.push(
-      this.loadData('vehicles', this.vehicles, this.VehicleService.VehicleList.bind(this.ReservationService)),
-      this.loadData('clients', this.clients, this.ClientService.ClientList.bind(this.ReservationService)),
+      this.loadData('vehicles', this.vehicles, this.VehicleService.VehicleList.bind(this.VehicleService)),
+      this.loadData('clients', this.clients, this.ClientService.ClientList.bind(this.ClientService)),
       this.loadData('reservations', this.reservations, this.ReservationService.ReservationList.bind(this.ReservationService))
     );
   }
