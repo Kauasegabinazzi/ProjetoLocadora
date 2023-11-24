@@ -28,7 +28,7 @@ export class ClientService {
 
   public ClientAdd(value: string): Observable<ClientList> {
     return this.http.post<ClientList>(`${this.url}list-food`, {
-      nome: value,
+      name: value,
     }).pipe(
       res => res,
       error => error
@@ -37,7 +37,7 @@ export class ClientService {
 
   public ClientEdit(id: number, value: string): Observable<ClientList> {
     return this.http.put<ClientList>(`${this.url}list-food/${id}`, {
-      nome: value
+      name: value,
     }).pipe(
       res => res,
       error => error
