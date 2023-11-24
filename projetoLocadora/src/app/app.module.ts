@@ -23,6 +23,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { ClientsEditComponent } from './pages/clients/clients-edit/clients-edit.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     ClientsComponent,
     ReservationsComponent,
     ErrorDialogComponent,
+    ClientsEditComponent,
   ],
   imports: [
     BrowserModule,

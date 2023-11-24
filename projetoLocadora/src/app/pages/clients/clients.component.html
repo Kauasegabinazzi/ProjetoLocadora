@@ -1,4 +1,10 @@
 <section class="catalog">
+  <div class="button-container">
+    <button class="botton-login" (click)="navegateToCreate('/clientesEdit')"
+      style="margin-right: 10px; display: flex; align-items: center; justify-content: center; margin-top: 20px; color: white; margin-bottom: 10px;">
+      Novo Cliente
+    </button>
+  </div>
   <table class="table table-hover">
     <tbody>
       <tr class="table-header">
@@ -17,8 +23,11 @@
         <th>
           Data de Criação do Usuario
         </th>
+        <th>
+          Ações
+        </th>
       </tr>
-      <tr  *ngFor="let item of clientList">
+      <tr *ngFor="let item of clientList">
         <td>
           {{item.nome}}
         </td>
@@ -32,7 +41,12 @@
           {{item.Aniversario | date: 'dd/MM/yyyy'}}
         </td>
         <td>
-          {{item.Data_Criacao_usuario  | date: 'dd/MM/yyyy'}}
+          {{item.Data_Criacao_usuario | date: 'dd/MM/yyyy'}}
+        </td>
+        <td>
+          <img src="../../../assets/icons/edit-button-svgrepo-com.svg" style="margin-right: 50px;"
+            (click)="navegateToEdit('/clientesEdit', item)">
+          <img src="../../../assets/icons/delete-1487-svgrepo-com.svg" (click)="DeleteClient(item.id)">
         </td>
       </tr>
     </tbody>

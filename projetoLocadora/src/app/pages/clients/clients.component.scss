@@ -9,3 +9,85 @@
   gap: 3vh;
   padding: 5vh;
 }
+
+.card-infos {
+  margin-bottom: 24px;
+  background-color: #fff;
+  border: 1px solid #C4C4C4;
+  border-radius: 8px 8px 8px 8px;
+}
+
+.tab-content {
+  padding: 5px;
+  margin-top: 1%;
+  margin-bottom: 24px;
+  margin-left: 1%;
+  margin-right: 1%;
+  background-color: #D9D9D9;
+  border: 1px solid #070707;
+  ;
+  border-radius: 8px 8px 8px 8px;
+}
+
+.botton-menu {
+  background-color: #616161;
+  border-radius: 8px 8px 8px 8px;
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: auto;
+}
+
+.botton-login {
+  background-color: #616161;
+  border-radius: 8px 8px 8px 8px;
+  display: flex;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  width: 150px;
+  height: 40px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.center-text {
+  font-size: 300%;
+  margin-left: 250px;
+  margin-top: 180px;
+  width: 700px;
+}
+
+.highlighted-text {
+  color: #38A810;
+  font-family: 'Krona One';
+}
+
+.company-slogan {
+  font-size: 34px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+  margin-left: 250px;
+  position: relative;
+  width: 700px;
+}
+
+.row {
+  display: inline-block;
+}
+
+#menu{
+  border: solid red;
+}
+#menu div{
+  list-style: none;
+}
+
+
+
