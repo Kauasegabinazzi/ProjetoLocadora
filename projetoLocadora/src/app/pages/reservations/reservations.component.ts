@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ErrorDialogService } from '../../../services/errordialog.service';
+import { ErrorDialogService } from '../../../services/error-dialog.service';
 import { ReservationList } from 'src/app/pages/reservations/module/struct';
 import { ClientService } from 'src/services/client.service';
 import { VehicleService } from 'src/services/vehicle.service';
