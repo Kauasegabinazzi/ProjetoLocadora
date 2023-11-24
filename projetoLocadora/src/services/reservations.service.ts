@@ -1,46 +1,96 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ErrorDialogService } from '../../../services/errordialog.service';
 import { ReservationList } from 'src/app/pages/reservations/module/struct';
+import { ClientService } from 'src/services/client.service';
+import { VehicleService } from 'src/services/vehicle.service';
+import { ReservationsService } from '../../../services/reservations.service';
+import { Subscription, Observable, BehaviorSubject } from 'rxjs';
+import { VehicleList } from '../vehicles/module/struct';
+import { ClientList } from '../clients/module/struct';
 
-@Injectable({
-  providedIn: 'root'
+type ValidProperties = 'vehicles' | 'clients' | 'reservations';
+type Reservation = ReservationList;
+
+@Component({
+  selector: 'app-reservations',
+  templateUrl: './reservations.component.html',
+  styleUrls: ['./reservations.component.scss']
 })
-export class FakeApiService {
+export class ReservationsComponent implements OnInit, OnDestroy {
+  vehicles: VehicleList[] = [];
+  clients: ClientList[] = [];
+  selectedClient: number = 0;
+  selectedVehicle: number = 0;
+  reservations: ReservationList[] = [];
 
-  private baseUrl: string = 'http://localhost:3000';
-  private reservationsUrl: string = `${this.baseUrl}/list-reservations`;
-  private reservationListSubject: BehaviorSubject<ReservationList[]> = new BehaviorSubject<ReservationList[]>([]);
-  public reservationList$: Observable<ReservationList[]> = this.reservationListSubject.asObservable();
+  private subscriptions: Subscription[] = [];
+  private reservationsSubject: BehaviorSubject<Reservation[]> = new BehaviorSubject<Reservation[]>([]);
+  reservations$ = this.reservationsSubject.asObservable();
 
-  private updateReservationList(): void {
-    this.getReservationList().subscribe((reservations: ReservationList[]) => {
-      this.reservationListSubject.next(reservations);
+
+  constructor(private VehicleService: VehicleService, private ReservationsService: ReservationsService, private errorDialogService: ErrorDialogService, private ClientService: ClientService) { }
+
+  ngOnInit(): void {
+    this.loadInitialData();
+    this.ReservationsService.reservationList$.subscribe(reservations => {
+      this.reservations = reservations;
     });
   }
 
-  constructor(private http: HttpClient) {}
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
+  }
 
-  getReservationList(): Observable<Array<ReservationList>> {
-    return this.http.get<Array<ReservationList>>(`${this.baseUrl}/list-reservations`).pipe(
-      res => res,
-      error => error
-    )
+  loadInitialData(): void {
+    this.subscriptions.push(
+      this.loadData('vehicles', this.vehicles, this.VehicleService.VehicleList.bind(this.ReservationsService)),
+      this.loadData('clients', this.clients, this.ClientService.ClientList.bind(this.ReservationsService)),
+      this.loadData('reservations', this.reservations, this.ReservationsService.ReservationList.bind(this.ReservationsService))
+    );
+  }
+
+  loadData(property: ValidProperties, data: any[], method: () => Observable<any[]>): Subscription {
+    return method().subscribe((response: any) => {
+      if (response) {
+        this[property] = response;
+      }
+    }, (error: any) => {
+      this.errorDialogService.openDialog(`Erro ao carregar ${property}: ${error.message}`);
+    });
   }
   
-  addReservation(clientid: number, vehicleid: number): Observable<ReservationList> {
-    const newReservation = {
-      id: clientid,
-      vehicleid: vehicleid,
-    };
+  reserveVehicle(): void {
+    if (this.selectedClient !== 0 && this.selectedVehicle !== 0) {
+      const existingReservation = this.reservationsSubject.getValue().find(
+        (reservation: Reservation) => reservation.vehicleid === this.selectedVehicle && reservation.id === this.selectedClient
+      );
 
-    return this.http.post<any>(this.reservationsUrl, newReservation).pipe(
-      tap((response: any) => {
-        if (response && response.success) {
-          this.updateReservationList();
-        }
-      })
-    );
+      if (!existingReservation) {
+        this.ReservationsService.ReservationAdd(this.selectedClient, this.selectedVehicle)
+          .subscribe((response: any) => {
+            if (response) {
+              const newReservation: Reservation = {
+                id: this.selectedClient,
+                vehicleid: this.selectedVehicle
+              };
+              this.reservationsSubject.next([...this.reservationsSubject.getValue(), newReservation]);
+              this.selectedClient = 0;
+              this.selectedVehicle = 0;
+            } else {
+              this.errorDialogService.openDialog('Falha ao reservar o veículo.');
+            }
+          });
+      }
+    }
+  }
+
+  getClientName(clientid: number): string {
+    const client = this.clients.find(c => c.id === clientid);
+    return client ? client.name : 'Cliente Desconhecido';
+  }
+
+  getVehicleModel(vehicleid: number): string {
+    const vehicle = this.vehicles.find(v => v.id === vehicleid);
+    return vehicle ? vehicle.model : 'Veículo Desconhecido';
   }
 }
