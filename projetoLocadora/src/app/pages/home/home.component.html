@@ -1,33 +1,56 @@
-<section id="main-container">
-  <div class="tab-content">
-    <ng-container>
-      <div class="button-container">
-        <button class="botton-menu" style="margin-bottom: 1%; margin-left: 10px; margin-top: 20px;">
-          <img src="assets/icons/Vector.svg">
-        </button>
-        <button class="botton-login"
-          style="margin-right: 10px; display: flex; align-items: center; justify-content: center; margin-top: 20px; color: white;" (click)="navegateToComponents('/clientes')">
-          <img src="assets/icons/icone-boneco.svg">
-          Login
-        </button>
-        <button class="botton-login"
-          style="margin-right: 10px; display: flex; align-items: center; justify-content: center; margin-top: 20px; color: white;" (click)="getModalLogin()">
-          <img src="assets/icons/icone-boneco.svg">
-          Criar conta
-        </button>
-      </div>
-    </ng-container>
+<section class="hero">
+  <div class="container" >
+    <h1>Descubra o Prazer de Dirigir.</h1>
+    <p>Encontre o carro perfeito para a sua jornada na estrada.</p>
   </div>
 </section>
-<div id="menu" style="float:left">
-  <div class="center-text" style="font-size: 500%;">
-    Encontre o<br>veículo<br><span class="highlighted-text">CERTO</span><br>para você
-  </div>
-  <div class="company-slogan">
-    É fácil, é rápido, é (nome da empresa)
-  </div>
-</div>
-<div id="menu" style="float:right; margin-right: 210px; margin-top: 50px;">
-  <img src="assets/icons/3dicons.svg">
-</div>
 
+<section class="features">
+  <div class="container">
+    <div class="feature">
+      <img src="assets/icons/pesquisa.png" alt="Pesquisa">
+      <h2>Pesquisa Fácil</h2>
+      <p>Encontre o carro ideal com nossa pesquisa intuitiva.</p>
+    </div>
+    <div class="feature">
+      <img src="assets/icons/data.png" alt="Calendário">
+      <h2>Reservas Simples</h2>
+      <p>Faça reservas de forma rápida e simples.</p>
+    </div>
+    <div class="feature">
+      <img src="assets/icons/dinheiro.png" alt="Dinheiro">
+      <h2>Preços Competitivos</h2>
+      <p>Oferecemos preços competitivos para atender às suas necessidades.</p>
+    </div>
+    <button class="alugar-btn" routerLink="/veiculos"><a></a>Alugue agora</button>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Sobre Nós</h3>
+          <p>Somos uma empresa dedicada a fornecer<br> soluções de aluguel de <br>carros de qualidade.</p>
+        </div>
+  
+        <div class="footer-section">
+          <h3>Contato</h3>
+          <p>Email: teste@teste.com.br</p>
+          <p>Telefone: (123) 456-7890</p>
+        </div>
+  
+        <div class="footer-section">
+          <h3>Links Úteis</h3>
+          <ul>
+            <li><a routerLink="/">Home</a></li>
+            <li><a routerLink="/veiculos">Carros</a></li>
+            <li><a routerLink="/reservas">Reservas</a></li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="footer-bottom">
+        <p>&copy; 2023 Aluguel de Carros. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+</section>
