@@ -1,0 +1,39 @@
+.form-container {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: gray;
+  border-radius: 5px;
+  border: 2px solid blueviolet;
+}
+
+.reservations-list {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: gray;
+  border-radius: 5px;
+  border: 2px solid blueviolet;
+}
+
+.form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.reservation-item {
+  margin-bottom: 10px;
+}
+
+.reserved-vehicle {
+  margin-bottom: 10px;
+  background-color: gray;
+  padding: 8px;
+  border-radius: 5px;
+  border: 2px solid blueviolet;
+}
