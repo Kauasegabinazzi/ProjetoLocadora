@@ -3,7 +3,7 @@ import { ErrorDialogService } from '../../../services/error-dialog.service';
 import { ReservationList } from 'src/app/pages/reservations/module/struct';
 import { ClientService } from 'src/services/client.service';
 import { VehicleService } from 'src/services/vehicle.service';
-import { ReservationsService } from '../../../services/reservations.service';
+import { ReservationService } from '../../../services/reservation.service';
 import { Subscription, Observable, BehaviorSubject } from 'rxjs';
 import { VehicleList } from '../vehicles/module/struct';
 import { ClientList } from '../clients/module/struct';
@@ -28,11 +28,11 @@ export class ReservationsComponent implements OnInit, OnDestroy {
   reservations$ = this.reservationsSubject.asObservable();
 
 
-  constructor(private VehicleService: VehicleService, private ReservationsService: ReservationsService, private errorDialogService: ErrorDialogService, private ClientService: ClientService) { }
+  constructor(private VehicleService: VehicleService, private ReservationService: ReservationService, private errorDialogService: ErrorDialogService, private ClientService: ClientService) { }
 
   ngOnInit(): void {
     this.loadInitialData();
-    this.ReservationsService.reservationList$.subscribe(reservations => {
+    this.ReservationService.reservationList$.subscribe(reservations => {
       this.reservations = reservations;
     });
   }
@@ -43,9 +43,9 @@ export class ReservationsComponent implements OnInit, OnDestroy {
 
   loadInitialData(): void {
     this.subscriptions.push(
-      this.loadData('vehicles', this.vehicles, this.VehicleService.VehicleList.bind(this.ReservationsService)),
-      this.loadData('clients', this.clients, this.ClientService.ClientList.bind(this.ReservationsService)),
-      this.loadData('reservations', this.reservations, this.ReservationsService.ReservationList.bind(this.ReservationsService))
+      this.loadData('vehicles', this.vehicles, this.VehicleService.VehicleList.bind(this.ReservationService)),
+      this.loadData('clients', this.clients, this.ClientService.ClientList.bind(this.ReservationService)),
+      this.loadData('reservations', this.reservations, this.ReservationService.ReservationList.bind(this.ReservationService))
     );
   }
 
@@ -66,7 +66,7 @@ export class ReservationsComponent implements OnInit, OnDestroy {
       );
 
       if (!existingReservation) {
-        this.ReservationsService.ReservationAdd(this.selectedClient, this.selectedVehicle)
+        this.ReservationService.ReservationAdd(this.selectedClient, this.selectedVehicle)
           .subscribe((response: any) => {
             if (response) {
               const newReservation: Reservation = {
