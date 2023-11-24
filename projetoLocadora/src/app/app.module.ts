@@ -7,7 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { VehiclesComponent } from './pages/vehicles/vehicles.component';
 import { ClientsComponent } from './pages/clients/clients.component';
 import { ReservationsComponent } from './pages/reservations/reservations.component';
-import { ErrorDialogComponent } from './pages/reservations/errordialog.component';
+import { ErrorDialogComponent } from './pages/reservations/error-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
