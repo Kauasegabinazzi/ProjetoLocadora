@@ -1,7 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FakeApiService } from '../../../services/reservations.service';
 import { ErrorDialogService } from '../../../services/errordialog.service';
-import { ClientList, VehicleList, ReservationList } from 'src/module/struct';
+import { ClientList } from 'src/app/pages/clients/module/struct';
+import { VehicleList } from 'src/app/pages/vehicles/module/struct';
+import { ReservationList } from 'src/app/pages/reservations/module/struct';
 import { Subscription, Observable, BehaviorSubject } from 'rxjs';
 
 type ValidProperties = 'vehicles' | 'clients' | 'reservations';
