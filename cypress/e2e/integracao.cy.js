@@ -1,36 +1,35 @@
-describe('Teste Home', () => {
-  it('Deve carregar a página inicial corretamente', () => {
+describe('Teste de Reserva', () => {
+  it('Faz Uma Reserva', () => {
     cy.visit('http://localhost:4200');
     cy.contains('Home'); // Verificar se existe um elemento com o texto 'Home'
     cy.url().should('eq', 'http://localhost:4200/'); // Verificar se a URL é a página inicial
-  });
-});
-/*describe('Teste Veiculos', () => {
-  it('Deve verificar a página de veículos', () => {
-    cy.visit('http://localhost:4200/veiculos');
-    cy.get('mat-card-info').should('have.length.greaterThan', 0); // Verificar se há cartões de veículos renderizados
-  });
-});*/
-describe('Teste Reserva', () => {
-  it('Deve realizar uma reserva', () => {
-    cy.visit('http://localhost:4200/');
-    
+
     // Clica no botão de menu para abrir a barra de navegação lateral
-    cy.get('mat-icon').contains('menu').click({ force: true });
+    cy.get('mat-toolbar-row').contains('menu').click().wait(500);
 
     // Clica no link "Reservas" na barra lateral
     cy.get('mat-list-item').contains('Reservar').click();
 
-    // Espera até que a lista de clientes esteja carregada e então seleciona um cliente
-    cy.get('#clientSelect').select('Cliente 1');
+    // Clica no botão de menu para fechar a barra de navegação lateral
+    cy.get('mat-toolbar-row').contains('menu').click().wait(500);
 
-    // Espera até que a lista de veículos esteja carregada e então seleciona um veículo
-    cy.get('#vehicleModel').select('Veículo 1');
+    cy.get('#clientSelect').click(); // Clicar para abrir o menu suspenso
+
+    // Localize e clique na opção desejada (por exemplo, 'Felipe')
+    cy.get('mat-option').wait(500).contains('Felipe').click();
+
+    cy.get('#vehicleModel').click(); // Clicar para abrir o menu suspenso
+
+    // Localize e clique na opção desejada (por exemplo, 'Chevrolet Cobalt')
+    cy.get('mat-option').wait(500).contains('Chevrolet Cobalt').click();
 
     // Clica no botão "Reservar"
-    cy.contains('Reservar').click();
+    cy.get('button').contains('Reservar').click();
+
+    // Recarrega a tela
+    cy.wait(500).reload();
 
     // Verifica se a reserva foi feita corretamente
-    cy.contains('Veículo: Veículo 1 - Cliente: Cliente 1');
+    cy.get('div').contains('Veículo: Chevrolet Cobalt - Cliente: Felipe');
   });
 });
