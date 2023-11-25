@@ -2,7 +2,6 @@
   <div *ngFor="let car of cars">
     <div class="card">
       <img [src]="car.imagePath" alt="{{ car.manufacturer }} Imagem">
-
       <div class="card-info">
         <h2>{{ car.manufacturer }}</h2>
         <p><strong>Ano:</strong> {{ car.year }}</p>
