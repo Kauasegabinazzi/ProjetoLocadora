@@ -37,3 +37,13 @@
   border-radius: 5px;
   border: 2px solid blueviolet;
 }
+
+.catalog {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px;
+  align-items: center;
+  height: 92vh;
+  gap: 3vh;
+  padding: 5vh;
+}

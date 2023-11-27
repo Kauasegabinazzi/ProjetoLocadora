@@ -1,30 +1,32 @@
-<div class="container">
-  <div class="form-container">
-    <h1>Reserva de Veículos</h1>
-    <form (ngSubmit)="reserveVehicle()" class="form-container">
-      <mat-form-field appearance="fill" class="form-field">
-        <mat-label>Veículo</mat-label>
-        <mat-select id="vehicleSelect" name="vehicleSelect" [(ngModel)]="selectedVehicle" required>
-          <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{ vehicle.model }}</mat-option>
-        </mat-select>
-      </mat-form-field>
+<div class="catalog">
+  <div class="container">
+    <div class="form-container">
+      <h1>Reserva de Veículos</h1>
+      <form (ngSubmit)="reserveVehicle()" class="form-container">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Veículo</mat-label>
+          <mat-select id="vehicleSelect" name="vehicleSelect" [(ngModel)]="selectedVehicle" required>
+            <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{ vehicle.model }}</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-      <mat-form-field appearance="fill" class="form-field">
-        <mat-label>Cliente</mat-label>
-        <mat-select  id="clientSelect" name="clientSelect" [(ngModel)]="selectedClient" required>
-          <mat-option *ngFor="let client of clients" [value]="client.id">{{ client.name }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <button mat-raised-button style="background-color: blueviolet; color: white;" type="submit">Reservar</button>
-    </form>
-  </div>
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Cliente</mat-label>
+          <mat-select id="clientSelect" name="clientSelect" [(ngModel)]="selectedClient" required>
+            <mat-option *ngFor="let client of clients" [value]="client.id">{{ client.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-raised-button style="background-color: blueviolet; color: white;" type="submit">Reservar</button>
+      </form>
+    </div>
 
-  <div class="reservations-list">
-    <h2>Veículos Reservados:</h2>
-    <ul>
-      <li *ngFor="let reservation of reservations" class="reserved-vehicle">
-        Veículo: {{ getVehicleModel(reservation.vehicleid) }} - Cliente: {{ getClientName(reservation.id) }}
-      </li>
-    </ul>
+    <div class="reservations-list">
+      <h2>Veículos Reservados:</h2>
+      <ul>
+        <li *ngFor="let reservation of reservations" class="reserved-vehicle">
+          Veículo: {{ getVehicleModel(reservation.vehicleid) }} - Cliente: {{ getClientName(reservation.id) }}
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
