@@ -27,7 +27,7 @@ export class ClientsComponent implements OnInit {
   }
 
   navegateToCreate(nameRouter: string,) {
-    this.router.navigate([nameRouter], { state: { isEdit: true } });
+    this.router.navigate([nameRouter], { state: { isEdit: false } });
   }
 
   DeleteClient(id: number) {

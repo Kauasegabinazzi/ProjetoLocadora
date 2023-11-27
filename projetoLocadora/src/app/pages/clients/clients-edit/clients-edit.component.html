@@ -1,1 +1,22 @@
-<p>clients-edit works!</p>
+<section class="catalog">
+  <form [formGroup]="form">
+    <div>
+      <label>Nome</label>
+      <input type="text" name="name" id="name" class="type-1" formControlName="nome">
+    </div>
+    <div>
+      <label>Matrícula</label>
+      <input type="text" name="matricula" id="matricula" class="type-1" formControlName="matricula">
+    </div>
+    <div>
+      <label>Idade</label>
+      <input type="text" name="idade" id="idade" class="type-1" formControlName="idade">
+    </div>
+    <div>
+      <label>Aniversário</label>
+      <input #date type="date" name="aniversario" id="aniversario" class="type-1" [value]="form.controls['data'].value"
+      (change)="form.controls['data'].setValue(date.value)">
+    </div>
+    <button (click)="createorupdate(form)">Salvar</button>
+  </form>
+</section>

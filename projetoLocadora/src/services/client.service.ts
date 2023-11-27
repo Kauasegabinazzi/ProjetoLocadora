@@ -26,18 +26,26 @@ export class ClientService {
     )
   }
 
-  public ClientAdd(value: string): Observable<ClientList> {
-    return this.http.post<ClientList>(`${this.url}list-food`, {
-      name: value,
+  public ClientAdd(value: ClientList): Observable<ClientList> {
+    return this.http.post<ClientList>(`${this.url}list-clients`, {
+      name: value.name,
+      age: value.age,
+      birthday: value.birthday,
+      registration: value.registration,
+      usercreationdate: value.usercreationdate
     }).pipe(
       res => res,
       error => error
     )
   }
 
-  public ClientEdit(id: number, value: string): Observable<ClientList> {
-    return this.http.put<ClientList>(`${this.url}list-food/${id}`, {
-      name: value,
+  public ClientEdit(id: number, value: ClientList): Observable<ClientList> {
+    return this.http.put<ClientList>(`${this.url}list-clients/${id}`, {
+      name: value.name,
+      age: value.age,
+      birthday: value.birthday,
+      registration: value.registration,
+      usercreationdate: value.usercreationdate
     }).pipe(
       res => res,
       error => error

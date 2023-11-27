@@ -16,7 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -24,6 +24,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientsEditComponent } from './pages/clients/clients-edit/clients-edit.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,13 @@ import { ClientsEditComponent } from './pages/clients/clients-edit/clients-edit.
     MatDialogModule,
     NgbModule,
     HttpClientModule,
+    CommonModule,
+    ReactiveFormsModule
   ],
+  exports:[
+    ReactiveFormsModule
+  ],
+
   providers: [],
   bootstrap: [AppComponent],
 })

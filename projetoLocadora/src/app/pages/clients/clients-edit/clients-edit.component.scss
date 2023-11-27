@@ -1,0 +1,51 @@
+@import '../../../../styles.scss';
+
+.catalog {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px;
+  align-items: center;
+  height: 92vh;
+  gap: 3vh;
+  padding: 5vh;
+}
+
+body {
+  margin: 40px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.type-1 {
+  border-radius: 10px;
+  border: 1px solid #eee;
+  transition: .3s border-color;
+}
+
+.type-1:hover {
+  border: 1px solid #aaa;
+}
+
+button {
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  padding: 10px;
+  border: none;
+  background-color: #3F51B5;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 5px;
+  width: 100%;
+
+}
