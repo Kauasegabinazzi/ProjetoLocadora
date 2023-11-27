@@ -13,15 +13,15 @@ describe('Teste de Reserva', () => {
     // Clica no botão de menu para fechar a barra de navegação lateral
     cy.get('mat-toolbar-row').contains('menu').click().wait(500);
 
+    cy.get('#vehicleSelect').click(); // Clicar para abrir o menu suspenso
+
+    // Localize e clique na opção desejada (por exemplo, 'Chevrolet Cobalt')
+    cy.get('mat-option').wait(500).contains('Chevrolet Cobalt').click();
+
     cy.get('#clientSelect').click(); // Clicar para abrir o menu suspenso
 
     // Localize e clique na opção desejada (por exemplo, 'Felipe')
     cy.get('mat-option').wait(500).contains('Felipe').click();
-
-    cy.get('#vehicleModel').click(); // Clicar para abrir o menu suspenso
-
-    // Localize e clique na opção desejada (por exemplo, 'Chevrolet Cobalt')
-    cy.get('mat-option').wait(500).contains('Chevrolet Cobalt').click();
 
     // Clica no botão "Reservar"
     cy.get('button').contains('Reservar').click();
