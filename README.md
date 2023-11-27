@@ -1,5 +1,6 @@
 # Projeto G2 Desenvolvimento Web
-- Linguagens utilizadas: HTML, SCSS, Typescript e Javascript, em um ambiente de desenvolvimento Angular.
+- Linguagens utilizadas: HTML, SCSS, Typescript e Javascript.
+- Ferramentas utilizadas: Angular, Cypress.
 # Colaboradores Desenvolvimento Web (Cleber Trindade, Gabriel Dallelaste, Kaua Segabinazzi)
 # Colaboradores Lab. Eng. Software(Felipe Ronzani, Guilherme Tramontin, Yuri Machado)
 Projeto desenvolvido na Universidade La Salle na cadeira de Desenvolvimento Web em conjunto com a cadeira de Laboratório de Engenharia de Software.
