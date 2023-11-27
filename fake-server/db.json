@@ -100,5 +100,13 @@
     }
   ],
   "list-reservations": [
+    {
+      "id": 2,
+      "vehicleid": 2
+    },
+    {
+      "id": 3,
+      "vehicleid": 3
+    }
   ]
 }
