@@ -20,13 +20,13 @@
       </form>
     </div>
 
-    <div class="reservations-list">
+    <div class="reservations-list" *ngIf="reservations && reservations.length > 0">
       <h2>Veículos Reservados:</h2>
       <ul>
-        <li *ngFor="let reservation of reservations" class="reserved-vehicle">
-          Veículo: {{ getVehicleModel(reservation.vehicleid) }} - Cliente: {{ getClientName(reservation.id) }}
-        </li>
+        <ng-container *ngFor="let reservation of reservations">
+          <li *ngIf="getClientName(reservation.id) !== '' && getVehicleModel(reservation.vehicleid) !== ''" class="reserved-vehicle">
+            Veículo: {{ getVehicleModel(reservation.vehicleid) }} - Cliente: {{ getClientName(reservation.id) }}
+          </li>
+        </ng-container>
       </ul>
     </div>
-  </div>
-</div>

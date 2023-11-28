@@ -87,11 +87,11 @@ export class ReservationsComponent implements OnInit, OnDestroy {
 
   getClientName(clientid: number): string {
     const client = this.clients.find(c => c.id === clientid);
-    return client ? client.name : 'Cliente Desconhecido';
+    return client ? client.name : '';
   }
 
   getVehicleModel(vehicleid: number): string {
     const vehicle = this.vehicles.find(v => v.id === vehicleid);
-    return vehicle ? vehicle.model : 'Veículo Desconhecido';
+    return vehicle ? vehicle.model : '';
   }
 }
