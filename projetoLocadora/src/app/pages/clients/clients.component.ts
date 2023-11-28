@@ -30,6 +30,10 @@ export class ClientsComponent implements OnInit {
     this.router.navigate([nameRouter], { state: { isEdit: false } });
   }
 
+  teste(){
+
+  }
+
   DeleteClient(id: number) {
     return this.service.ClientDelete(id).subscribe(
       res => [

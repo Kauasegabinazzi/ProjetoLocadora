@@ -6,3 +6,8 @@ export class ClientList {
   registration: number = 0;
   usercreationdate: Date = new Date();
 }
+
+export class teste {
+
+}
+

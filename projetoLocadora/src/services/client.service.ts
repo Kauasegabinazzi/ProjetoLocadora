@@ -39,6 +39,10 @@ export class ClientService {
     )
   }
 
+  teste(){
+
+  }
+
   public ClientEdit(id: number, value: ClientList): Observable<ClientList> {
     return this.http.put<ClientList>(`${this.url}list-clients/${id}`, {
       name: value.name,
